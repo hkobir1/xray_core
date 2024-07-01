@@ -1,18 +1,18 @@
 package command
 
-//go:generate go run github.com/xtls/xray-core/common/errors/errorgen
+//go:generate go run github.com/hkobir1/xray_core/common/errors/errorgen
 
 import (
 	"context"
 	"runtime"
 	"time"
 
-	"github.com/xtls/xray-core/app/stats"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/strmatcher"
-	"github.com/xtls/xray-core/core"
-	feature_stats "github.com/xtls/xray-core/features/stats"
+	"github.com/hkobir1/xray_core/app/stats"
+	"github.com/hkobir1/xray_core/common"
+	"github.com/hkobir1/xray_core/common/errors"
+	"github.com/hkobir1/xray_core/common/strmatcher"
+	"github.com/hkobir1/xray_core/core"
+	feature_stats "github.com/hkobir1/xray_core/features/stats"
 	grpc "google.golang.org/grpc"
 )
 

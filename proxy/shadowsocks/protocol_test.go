@@ -4,11 +4,11 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/protocol"
-	. "github.com/xtls/xray-core/proxy/shadowsocks"
+	"github.com/hkobir1/xray_core/common"
+	"github.com/hkobir1/xray_core/common/buf"
+	"github.com/hkobir1/xray_core/common/net"
+	"github.com/hkobir1/xray_core/common/protocol"
+	. "github.com/hkobir1/xray_core/proxy/shadowsocks"
 )
 
 func toAccount(a *Account) protocol.Account {

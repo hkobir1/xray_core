@@ -1,6 +1,6 @@
 package dispatcher
 
-//go:generate go run github.com/xtls/xray-core/common/errors/errorgen
+//go:generate go run github.com/hkobir1/xray_core/common/errors/errorgen
 
 import (
 	"context"
@@ -9,22 +9,22 @@ import (
 	"sync"
 	"time"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/log"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/protocol"
-	"github.com/xtls/xray-core/common/session"
-	"github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/features/dns"
-	"github.com/xtls/xray-core/features/outbound"
-	"github.com/xtls/xray-core/features/policy"
-	"github.com/xtls/xray-core/features/routing"
-	routing_session "github.com/xtls/xray-core/features/routing/session"
-	"github.com/xtls/xray-core/features/stats"
-	"github.com/xtls/xray-core/transport"
-	"github.com/xtls/xray-core/transport/pipe"
+	"github.com/hkobir1/xray_core/common"
+	"github.com/hkobir1/xray_core/common/errors"
+	"github.com/hkobir1/xray_core/common/buf"
+	"github.com/hkobir1/xray_core/common/log"
+	"github.com/hkobir1/xray_core/common/net"
+	"github.com/hkobir1/xray_core/common/protocol"
+	"github.com/hkobir1/xray_core/common/session"
+	"github.com/hkobir1/xray_core/core"
+	"github.com/hkobir1/xray_core/features/dns"
+	"github.com/hkobir1/xray_core/features/outbound"
+	"github.com/hkobir1/xray_core/features/policy"
+	"github.com/hkobir1/xray_core/features/routing"
+	routing_session "github.com/hkobir1/xray_core/features/routing/session"
+	"github.com/hkobir1/xray_core/features/stats"
+	"github.com/hkobir1/xray_core/transport"
+	"github.com/hkobir1/xray_core/transport/pipe"
 )
 
 var errSniffingTimeout = errors.New("timeout on sniffing")

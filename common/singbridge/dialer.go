@@ -6,13 +6,13 @@ import (
 
 	M "github.com/sagernet/sing/common/metadata"
 	N "github.com/sagernet/sing/common/network"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/net/cnc"
-	"github.com/xtls/xray-core/common/session"
-	"github.com/xtls/xray-core/proxy"
-	"github.com/xtls/xray-core/transport"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/pipe"
+	"github.com/hkobir1/xray_core/common/net"
+	"github.com/hkobir1/xray_core/common/net/cnc"
+	"github.com/hkobir1/xray_core/common/session"
+	"github.com/hkobir1/xray_core/proxy"
+	"github.com/hkobir1/xray_core/transport"
+	"github.com/hkobir1/xray_core/transport/internet"
+	"github.com/hkobir1/xray_core/transport/pipe"
 )
 
 var _ N.Dialer = (*XrayDialer)(nil)

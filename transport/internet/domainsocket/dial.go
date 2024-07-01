@@ -6,13 +6,13 @@ package domainsocket
 import (
 	"context"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/reality"
-	"github.com/xtls/xray-core/transport/internet/stat"
-	"github.com/xtls/xray-core/transport/internet/tls"
+	"github.com/hkobir1/xray_core/common"
+	"github.com/hkobir1/xray_core/common/errors"
+	"github.com/hkobir1/xray_core/common/net"
+	"github.com/hkobir1/xray_core/transport/internet"
+	"github.com/hkobir1/xray_core/transport/internet/reality"
+	"github.com/hkobir1/xray_core/transport/internet/stat"
+	"github.com/hkobir1/xray_core/transport/internet/tls"
 )
 
 func Dial(ctx context.Context, dest net.Destination, streamSettings *internet.MemoryStreamConfig) (stat.Connection, error) {

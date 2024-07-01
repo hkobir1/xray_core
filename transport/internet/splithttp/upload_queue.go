@@ -7,7 +7,7 @@ import (
 	"container/heap"
 	"io"
 
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/hkobir1/xray_core/common/errors"
 )
 
 type Packet struct {

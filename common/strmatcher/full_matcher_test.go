@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	. "github.com/xtls/xray-core/common/strmatcher"
+	. "github.com/hkobir1/xray_core/common/strmatcher"
 )
 
 func TestFullMatcherGroup(t *testing.T) {

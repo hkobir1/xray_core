@@ -7,17 +7,17 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/protocol"
-	"github.com/xtls/xray-core/common/protocol/tls/cert"
-	"github.com/xtls/xray-core/common/serial"
-	"github.com/xtls/xray-core/testing/servers/udp"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/quic"
-	"github.com/xtls/xray-core/transport/internet/stat"
-	"github.com/xtls/xray-core/transport/internet/tls"
+	"github.com/hkobir1/xray_core/common"
+	"github.com/hkobir1/xray_core/common/buf"
+	"github.com/hkobir1/xray_core/common/net"
+	"github.com/hkobir1/xray_core/common/protocol"
+	"github.com/hkobir1/xray_core/common/protocol/tls/cert"
+	"github.com/hkobir1/xray_core/common/serial"
+	"github.com/hkobir1/xray_core/testing/servers/udp"
+	"github.com/hkobir1/xray_core/transport/internet"
+	"github.com/hkobir1/xray_core/transport/internet/quic"
+	"github.com/hkobir1/xray_core/transport/internet/stat"
+	"github.com/hkobir1/xray_core/transport/internet/tls"
 )
 
 func TestQuicConnection(t *testing.T) {

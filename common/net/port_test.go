@@ -3,7 +3,7 @@ package net_test
 import (
 	"testing"
 
-	. "github.com/xtls/xray-core/common/net"
+	. "github.com/hkobir1/xray_core/common/net"
 )
 
 func TestPortRangeContains(t *testing.T) {

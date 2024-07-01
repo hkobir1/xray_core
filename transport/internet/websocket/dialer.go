@@ -11,14 +11,14 @@ import (
 	"time"
 
 	"github.com/gorilla/websocket"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/platform"
-	"github.com/xtls/xray-core/common/uuid"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/stat"
-	"github.com/xtls/xray-core/transport/internet/tls"
+	"github.com/hkobir1/xray_core/common"
+	"github.com/hkobir1/xray_core/common/errors"
+	"github.com/hkobir1/xray_core/common/net"
+	"github.com/hkobir1/xray_core/common/platform"
+	"github.com/hkobir1/xray_core/common/uuid"
+	"github.com/hkobir1/xray_core/transport/internet"
+	"github.com/hkobir1/xray_core/transport/internet/stat"
+	"github.com/hkobir1/xray_core/transport/internet/tls"
 )
 
 //go:embed dialer.html

@@ -10,14 +10,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/protocol/tls/cert"
-	"github.com/xtls/xray-core/testing/servers/tcp"
-	"github.com/xtls/xray-core/transport/internet"
-	. "github.com/xtls/xray-core/transport/internet/splithttp"
-	"github.com/xtls/xray-core/transport/internet/stat"
-	"github.com/xtls/xray-core/transport/internet/tls"
+	"github.com/hkobir1/xray_core/common"
+	"github.com/hkobir1/xray_core/common/net"
+	"github.com/hkobir1/xray_core/common/protocol/tls/cert"
+	"github.com/hkobir1/xray_core/testing/servers/tcp"
+	"github.com/hkobir1/xray_core/transport/internet"
+	. "github.com/hkobir1/xray_core/transport/internet/splithttp"
+	"github.com/hkobir1/xray_core/transport/internet/stat"
+	"github.com/hkobir1/xray_core/transport/internet/tls"
 	"golang.org/x/net/http2"
 )
 

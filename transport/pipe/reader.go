@@ -3,7 +3,7 @@ package pipe
 import (
 	"time"
 
-	"github.com/xtls/xray-core/common/buf"
+	"github.com/hkobir1/xray_core/common/buf"
 )
 
 // Reader is a buf.Reader that reads content from a pipe.

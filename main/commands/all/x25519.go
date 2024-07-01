@@ -1,7 +1,7 @@
 package all
 
 import (
-	"github.com/xtls/xray-core/main/commands/base"
+	"github.com/hkobir1/xray_core/main/commands/base"
 )
 
 var cmdX25519 = &base.Command{

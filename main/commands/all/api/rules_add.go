@@ -3,11 +3,11 @@ package api
 import (
 	"fmt"
 
-	routerService "github.com/xtls/xray-core/app/router/command"
-	cserial "github.com/xtls/xray-core/common/serial"
-	"github.com/xtls/xray-core/infra/conf"
-	"github.com/xtls/xray-core/infra/conf/serial"
-	"github.com/xtls/xray-core/main/commands/base"
+	routerService "github.com/hkobir1/xray_core/app/router/command"
+	cserial "github.com/hkobir1/xray_core/common/serial"
+	"github.com/hkobir1/xray_core/infra/conf"
+	"github.com/hkobir1/xray_core/infra/conf/serial"
+	"github.com/hkobir1/xray_core/main/commands/base"
 )
 
 var cmdAddRules = &base.Command{

@@ -4,7 +4,7 @@ import (
 	"io"
 	"sync"
 
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/hkobir1/xray_core/common/errors"
 )
 
 type LazyReader struct {

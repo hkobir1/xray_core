@@ -4,8 +4,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/xtls/xray-core/common/net"
-	. "github.com/xtls/xray-core/common/protocol"
+	"github.com/hkobir1/xray_core/common/net"
+	. "github.com/hkobir1/xray_core/common/protocol"
 )
 
 func TestServerList(t *testing.T) {

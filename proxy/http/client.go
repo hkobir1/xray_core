@@ -248,7 +248,37 @@ func setUpHTTPTunnel(ctx context.Context, dest net.Destination, target string, u
 		return rawConn, nil
 	}
 
-	
+	connectHTTP2 := func(rawConn net.Conn, h2clientConn *http2.ClientConn) (net.Conn, error) {
+		pr, pw := io.Pipe()
+		req.Body = pr
+
+		var pErr error
+		var wg sync.WaitGroup
+		wg.Add(1)
+
+		go func() {
+			_, pErr = pw.Write(firstPayload)
+			wg.Done()
+		}()
+
+		resp, err := h2clientConn.RoundTrip(req)
+		if err != nil {
+			rawConn.Close()
+			return nil, err
+		}
+
+		wg.Wait()
+		if pErr != nil {
+			rawConn.Close()
+			return nil, pErr
+		}
+
+		if resp.StatusCode != http.StatusOK {
+			rawConn.Close()
+			return nil, errors.New("Proxy responded with non 200 code: " + resp.Status)
+		}
+		return newHTTP2Conn(rawConn, pw, resp.Body), nil
+	}
 
 	cachedH2Mutex.Lock()
 	cachedConn, cachedConnFound := cachedH2Conns[dest]

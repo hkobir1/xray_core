@@ -7,11 +7,11 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/quic-go/quic-go"
 	"github.com/hkobir1/xray_core/common"
 	"github.com/hkobir1/xray_core/common/buf"
 	"github.com/hkobir1/xray_core/common/net"
 	"github.com/hkobir1/xray_core/transport/internet"
+	"github.com/quic-go/quic-go"
 )
 
 type sysConn struct {

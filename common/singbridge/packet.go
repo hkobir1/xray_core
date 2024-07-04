@@ -3,12 +3,12 @@ package singbridge
 import (
 	"context"
 
-	B "github.com/sagernet/sing/common/buf"
-	"github.com/sagernet/sing/common/bufio"
-	M "github.com/sagernet/sing/common/metadata"
 	"github.com/hkobir1/xray_core/common/buf"
 	"github.com/hkobir1/xray_core/common/net"
 	"github.com/hkobir1/xray_core/transport"
+	B "github.com/sagernet/sing/common/buf"
+	"github.com/sagernet/sing/common/bufio"
+	M "github.com/sagernet/sing/common/metadata"
 )
 
 func CopyPacketConn(ctx context.Context, inboundConn net.Conn, link *transport.Link, destination net.Destination, serverConn net.PacketConn) error {

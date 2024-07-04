@@ -5,11 +5,11 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/sagernet/sing/common/control"
 	"github.com/hkobir1/xray_core/common/errors"
 	"github.com/hkobir1/xray_core/common/net"
 	"github.com/hkobir1/xray_core/features/dns"
 	"github.com/hkobir1/xray_core/features/outbound"
+	"github.com/sagernet/sing/common/control"
 )
 
 var effectiveSystemDialer SystemDialer = &DefaultSystemDialer{}
@@ -48,7 +48,7 @@ func hasBindAddr(sockopt *SocketConfig) bool {
 }
 
 func (d *DefaultSystemDialer) Dial(ctx context.Context, src net.Address, dest net.Destination, sockopt *SocketConfig) (net.Conn, error) {
-	errors.LogDebug(ctx, "dialing to " + dest.String())
+	errors.LogDebug(ctx, "dialing to "+dest.String())
 
 	if dest.Network == net.Network_UDP && !hasBindAddr(sockopt) {
 		srcAddr := resolveSrcAddr(net.Network_UDP, src)

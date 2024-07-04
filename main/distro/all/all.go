@@ -47,6 +47,7 @@ import (
 	_ "github.com/hkobir1/xray_core/proxy/vless/outbound"
 	_ "github.com/hkobir1/xray_core/proxy/vmess/inbound"
 	_ "github.com/hkobir1/xray_core/proxy/vmess/outbound"
+	_ "github.com/hkobir1/xray_core/proxy/wireguard"
 
 	// Transports
 	_ "github.com/hkobir1/xray_core/transport/internet/domainsocket"
@@ -69,6 +70,7 @@ import (
 	_ "github.com/hkobir1/xray_core/transport/internet/headers/tls"
 	_ "github.com/hkobir1/xray_core/transport/internet/headers/utp"
 	_ "github.com/hkobir1/xray_core/transport/internet/headers/wechat"
+	_ "github.com/hkobir1/xray_core/transport/internet/headers/wireguard"
 
 	// JSON & TOML & YAML
 	_ "github.com/hkobir1/xray_core/main/json"

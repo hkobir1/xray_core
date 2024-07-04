@@ -6,7 +6,6 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/miekg/dns"
 	"github.com/hkobir1/xray_core/app/dispatcher"
 	dnsapp "github.com/hkobir1/xray_core/app/dns"
 	"github.com/hkobir1/xray_core/app/policy"
@@ -21,6 +20,7 @@ import (
 	"github.com/hkobir1/xray_core/proxy/dokodemo"
 	"github.com/hkobir1/xray_core/testing/servers/tcp"
 	"github.com/hkobir1/xray_core/testing/servers/udp"
+	"github.com/miekg/dns"
 )
 
 type staticHandler struct{}

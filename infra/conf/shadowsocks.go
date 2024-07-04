@@ -3,13 +3,13 @@ package conf
 import (
 	"strings"
 
-	"github.com/sagernet/sing-shadowsocks/shadowaead_2022"
-	C "github.com/sagernet/sing/common"
 	"github.com/hkobir1/xray_core/common/errors"
 	"github.com/hkobir1/xray_core/common/protocol"
 	"github.com/hkobir1/xray_core/common/serial"
 	"github.com/hkobir1/xray_core/proxy/shadowsocks"
 	"github.com/hkobir1/xray_core/proxy/shadowsocks_2022"
+	"github.com/sagernet/sing-shadowsocks/shadowaead_2022"
+	C "github.com/sagernet/sing/common"
 	"google.golang.org/protobuf/proto"
 )
 

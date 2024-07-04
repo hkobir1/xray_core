@@ -170,7 +170,7 @@ func (w *ServerWorker) handleStatusNew(ctx context.Context, meta *FrameMetadata,
 				b.Release()
 				mb = nil
 			}
-			errors.LogInfoInner(ctx, err,"XUDP hit ", meta.GlobalID)
+			errors.LogInfoInner(ctx, err, "XUDP hit ", meta.GlobalID)
 		}
 		if mb != nil {
 			ctx = session.ContextWithTimeoutOnly(ctx, true)

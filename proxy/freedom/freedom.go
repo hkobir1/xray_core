@@ -9,7 +9,6 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/pires/go-proxyproto"
 	"github.com/hkobir1/xray_core/common"
 	"github.com/hkobir1/xray_core/common/buf"
 	"github.com/hkobir1/xray_core/common/dice"
@@ -28,6 +27,7 @@ import (
 	"github.com/hkobir1/xray_core/transport"
 	"github.com/hkobir1/xray_core/transport/internet"
 	"github.com/hkobir1/xray_core/transport/internet/stat"
+	"github.com/pires/go-proxyproto"
 )
 
 var useSplice bool

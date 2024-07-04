@@ -18,5 +18,5 @@ type Feature interface {
 
 // PrintDeprecatedFeatureWarning prints a warning for deprecated feature.
 func PrintDeprecatedFeatureWarning(feature string) {
-	errors.LogInfo(context.Background(), "You are using a deprecated feature: " + feature + ". Please update your config file with latest configuration format, or update your client software.")
+	errors.LogInfo(context.Background(), "You are using a deprecated feature: "+feature+". Please update your config file with latest configuration format, or update your client software.")
 }

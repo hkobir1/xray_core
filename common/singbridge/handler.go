@@ -4,13 +4,13 @@ import (
 	"context"
 	"io"
 
-	M "github.com/sagernet/sing/common/metadata"
-	N "github.com/sagernet/sing/common/network"
 	"github.com/hkobir1/xray_core/common/buf"
 	"github.com/hkobir1/xray_core/common/errors"
 	"github.com/hkobir1/xray_core/common/net"
 	"github.com/hkobir1/xray_core/features/routing"
 	"github.com/hkobir1/xray_core/transport"
+	M "github.com/sagernet/sing/common/metadata"
+	N "github.com/sagernet/sing/common/network"
 )
 
 var (

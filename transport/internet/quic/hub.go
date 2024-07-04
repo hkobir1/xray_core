@@ -4,9 +4,6 @@ import (
 	"context"
 	"time"
 
-	"github.com/quic-go/quic-go"
-	"github.com/quic-go/quic-go/logging"
-	"github.com/quic-go/quic-go/qlog"
 	"github.com/hkobir1/xray_core/common"
 	"github.com/hkobir1/xray_core/common/errors"
 	"github.com/hkobir1/xray_core/common/net"
@@ -14,6 +11,9 @@ import (
 	"github.com/hkobir1/xray_core/common/signal/done"
 	"github.com/hkobir1/xray_core/transport/internet"
 	"github.com/hkobir1/xray_core/transport/internet/tls"
+	"github.com/quic-go/quic-go"
+	"github.com/quic-go/quic-go/logging"
+	"github.com/quic-go/quic-go/qlog"
 )
 
 // Listener is an internet.Listener that listens for TCP connections.

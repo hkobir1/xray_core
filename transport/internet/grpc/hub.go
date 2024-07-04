@@ -4,7 +4,6 @@ import (
 	"context"
 	"time"
 
-	goreality "github.com/xtls/reality"
 	"github.com/hkobir1/xray_core/common"
 	"github.com/hkobir1/xray_core/common/errors"
 	"github.com/hkobir1/xray_core/common/net"
@@ -12,6 +11,7 @@ import (
 	"github.com/hkobir1/xray_core/transport/internet/grpc/encoding"
 	"github.com/hkobir1/xray_core/transport/internet/reality"
 	"github.com/hkobir1/xray_core/transport/internet/tls"
+	goreality "github.com/xtls/reality"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/keepalive"
@@ -120,7 +120,7 @@ func Listen(ctx context.Context, address net.Address, port net.Port, settings *i
 			}
 		}
 
-		errors.LogDebug(ctx, "gRPC listen for service name `" + grpcSettings.getServiceName() + "` tun `" + grpcSettings.getTunStreamName() + "` multi tun `" + grpcSettings.getTunMultiStreamName() + "`")
+		errors.LogDebug(ctx, "gRPC listen for service name `"+grpcSettings.getServiceName()+"` tun `"+grpcSettings.getTunStreamName()+"` multi tun `"+grpcSettings.getTunMultiStreamName()+"`")
 		encoding.RegisterGRPCServiceServerX(s, listener, grpcSettings.getServiceName(), grpcSettings.getTunStreamName(), grpcSettings.getTunMultiStreamName())
 
 		if config := reality.ConfigFromStreamSettings(settings); config != nil {

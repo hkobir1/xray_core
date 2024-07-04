@@ -223,14 +223,14 @@ func (h *Handler) Process(ctx context.Context, network net.Network, connection s
 				cs := tlsConn.ConnectionState()
 				name = cs.ServerName
 				alpn = cs.NegotiatedProtocol
-				errors.LogInfo(ctx, "realName = " + name)
-				errors.LogInfo(ctx, "realAlpn = " + alpn)
+				errors.LogInfo(ctx, "realName = "+name)
+				errors.LogInfo(ctx, "realAlpn = "+alpn)
 			} else if realityConn, ok := iConn.(*reality.Conn); ok {
 				cs := realityConn.ConnectionState()
 				name = cs.ServerName
 				alpn = cs.NegotiatedProtocol
-				errors.LogInfo(ctx, "realName = " + name)
-				errors.LogInfo(ctx, "realAlpn = " + alpn)
+				errors.LogInfo(ctx, "realName = "+name)
+				errors.LogInfo(ctx, "realAlpn = "+alpn)
 			}
 			name = strings.ToLower(name)
 			alpn = strings.ToLower(alpn)
@@ -295,7 +295,7 @@ func (h *Handler) Process(ctx context.Context, network net.Network, connection s
 								}
 								if k == '?' || k == ' ' {
 									path = string(firstBytes[i:j])
-									errors.LogInfo(ctx, "realPath = " + path)
+									errors.LogInfo(ctx, "realPath = "+path)
 									if pfb[path] == nil {
 										path = ""
 									}

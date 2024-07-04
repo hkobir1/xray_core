@@ -11,6 +11,7 @@ import (
 	"github.com/hkobir1/xray_core/transport/internet/headers/tls"
 	"github.com/hkobir1/xray_core/transport/internet/headers/utp"
 	"github.com/hkobir1/xray_core/transport/internet/headers/wechat"
+	"github.com/hkobir1/xray_core/transport/internet/headers/wireguard"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -44,7 +45,11 @@ func (WechatVideoAuthenticator) Build() (proto.Message, error) {
 	return new(wechat.VideoConfig), nil
 }
 
+type WireguardAuthenticator struct{}
 
+func (WireguardAuthenticator) Build() (proto.Message, error) {
+	return new(wireguard.WireguardConfig), nil
+}
 
 type DNSAuthenticator struct {
 	Domain string `json:"domain"`

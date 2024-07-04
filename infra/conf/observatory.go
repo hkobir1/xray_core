@@ -2,7 +2,7 @@ package conf
 
 import (
 	"google.golang.org/protobuf/proto"
-	
+
 	"github.com/hkobir1/xray_core/app/observatory"
 	"github.com/hkobir1/xray_core/app/observatory/burst"
 	"github.com/hkobir1/xray_core/infra/conf/cfgcommon/duration"

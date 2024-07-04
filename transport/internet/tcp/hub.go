@@ -6,7 +6,6 @@ import (
 	"strings"
 	"time"
 
-	goreality "github.com/xtls/reality"
 	"github.com/hkobir1/xray_core/common"
 	"github.com/hkobir1/xray_core/common/errors"
 	"github.com/hkobir1/xray_core/common/net"
@@ -14,6 +13,7 @@ import (
 	"github.com/hkobir1/xray_core/transport/internet/reality"
 	"github.com/hkobir1/xray_core/transport/internet/stat"
 	"github.com/hkobir1/xray_core/transport/internet/tls"
+	goreality "github.com/xtls/reality"
 )
 
 // Listener is an internet.Listener that listens for TCP connections.

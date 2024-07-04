@@ -10,8 +10,8 @@ import (
 	"time"
 
 	"github.com/hkobir1/xray_core/common"
-	"github.com/hkobir1/xray_core/common/errors"
 	"github.com/hkobir1/xray_core/common/buf"
+	"github.com/hkobir1/xray_core/common/errors"
 	"github.com/hkobir1/xray_core/common/log"
 	"github.com/hkobir1/xray_core/common/net"
 	"github.com/hkobir1/xray_core/common/protocol"

@@ -6,10 +6,10 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/miekg/dns"
 	"github.com/hkobir1/xray_core/common"
 	"github.com/hkobir1/xray_core/common/net"
 	dns_feature "github.com/hkobir1/xray_core/features/dns"
+	"github.com/miekg/dns"
 	"golang.org/x/net/dns/dnsmessage"
 )
 

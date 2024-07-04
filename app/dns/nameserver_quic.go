@@ -9,7 +9,6 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/quic-go/quic-go"
 	"github.com/hkobir1/xray_core/common"
 	"github.com/hkobir1/xray_core/common/buf"
 	"github.com/hkobir1/xray_core/common/errors"
@@ -21,6 +20,7 @@ import (
 	"github.com/hkobir1/xray_core/common/task"
 	dns_feature "github.com/hkobir1/xray_core/features/dns"
 	"github.com/hkobir1/xray_core/transport/internet/tls"
+	"github.com/quic-go/quic-go"
 	"golang.org/x/net/dns/dnsmessage"
 	"golang.org/x/net/http2"
 )

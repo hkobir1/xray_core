@@ -6,7 +6,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/sagernet/sing-shadowsocks/shadowaead_2022"
 	"github.com/hkobir1/xray_core/app/log"
 	"github.com/hkobir1/xray_core/app/proxyman"
 	"github.com/hkobir1/xray_core/common"
@@ -19,6 +18,7 @@ import (
 	"github.com/hkobir1/xray_core/proxy/shadowsocks_2022"
 	"github.com/hkobir1/xray_core/testing/servers/tcp"
 	"github.com/hkobir1/xray_core/testing/servers/udp"
+	"github.com/sagernet/sing-shadowsocks/shadowaead_2022"
 	"golang.org/x/sync/errgroup"
 )
 

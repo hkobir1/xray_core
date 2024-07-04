@@ -4,8 +4,6 @@ import (
 	"context"
 	"os"
 
-	M "github.com/sagernet/sing/common/metadata"
-	N "github.com/sagernet/sing/common/network"
 	"github.com/hkobir1/xray_core/common/net"
 	"github.com/hkobir1/xray_core/common/net/cnc"
 	"github.com/hkobir1/xray_core/common/session"
@@ -13,6 +11,8 @@ import (
 	"github.com/hkobir1/xray_core/transport"
 	"github.com/hkobir1/xray_core/transport/internet"
 	"github.com/hkobir1/xray_core/transport/pipe"
+	M "github.com/sagernet/sing/common/metadata"
+	N "github.com/sagernet/sing/common/network"
 )
 
 var _ N.Dialer = (*XrayDialer)(nil)
@@ -48,9 +48,9 @@ func (d *XrayOutboundDialer) DialContext(ctx context.Context, network string, de
 		outbounds = []*session.Outbound{{}}
 		ctx = session.ContextWithOutbounds(ctx, outbounds)
 	}
-	ob := outbounds[len(outbounds) - 1]
+	ob := outbounds[len(outbounds)-1]
 	ob.Target = ToDestination(destination, ToNetwork(network))
-	
+
 	opts := []pipe.Option{pipe.WithSizeLimit(64 * 1024)}
 	uplinkReader, uplinkWriter := pipe.New(opts...)
 	downlinkReader, downlinkWriter := pipe.New(opts...)

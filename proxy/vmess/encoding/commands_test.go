@@ -4,12 +4,12 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/stretchr/testify/assert"
 	"github.com/hkobir1/xray_core/common"
 	"github.com/hkobir1/xray_core/common/buf"
 	"github.com/hkobir1/xray_core/common/protocol"
 	"github.com/hkobir1/xray_core/common/uuid"
 	. "github.com/hkobir1/xray_core/proxy/vmess/encoding"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestSwitchAccount(t *testing.T) {

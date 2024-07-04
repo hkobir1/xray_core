@@ -3,11 +3,11 @@ package singbridge
 import (
 	"time"
 
+	"github.com/hkobir1/xray_core/common/buf"
+	"github.com/hkobir1/xray_core/common/net"
 	"github.com/sagernet/sing/common"
 	"github.com/sagernet/sing/common/bufio"
 	N "github.com/sagernet/sing/common/network"
-	"github.com/hkobir1/xray_core/common/buf"
-	"github.com/hkobir1/xray_core/common/net"
 )
 
 var (

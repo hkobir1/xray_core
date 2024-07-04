@@ -11,8 +11,8 @@ import (
 
 	"github.com/hkobir1/xray_core/app/proxyman"
 	"github.com/hkobir1/xray_core/common"
-	"github.com/hkobir1/xray_core/common/errors"
 	"github.com/hkobir1/xray_core/common/buf"
+	"github.com/hkobir1/xray_core/common/errors"
 	"github.com/hkobir1/xray_core/common/mux"
 	"github.com/hkobir1/xray_core/common/net"
 	"github.com/hkobir1/xray_core/common/net/cnc"

@@ -5,9 +5,6 @@ import (
 	"sync"
 	"time"
 
-	"github.com/quic-go/quic-go"
-	"github.com/quic-go/quic-go/logging"
-	"github.com/quic-go/quic-go/qlog"
 	"github.com/hkobir1/xray_core/common"
 	"github.com/hkobir1/xray_core/common/errors"
 	"github.com/hkobir1/xray_core/common/net"
@@ -15,6 +12,9 @@ import (
 	"github.com/hkobir1/xray_core/transport/internet"
 	"github.com/hkobir1/xray_core/transport/internet/stat"
 	"github.com/hkobir1/xray_core/transport/internet/tls"
+	"github.com/quic-go/quic-go"
+	"github.com/quic-go/quic-go/logging"
+	"github.com/quic-go/quic-go/qlog"
 )
 
 type connectionContext struct {

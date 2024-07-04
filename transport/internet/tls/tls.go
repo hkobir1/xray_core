@@ -7,9 +7,9 @@ import (
 	"math/big"
 	"time"
 
-	utls "github.com/refraction-networking/utls"
 	"github.com/hkobir1/xray_core/common/buf"
 	"github.com/hkobir1/xray_core/common/net"
+	utls "github.com/refraction-networking/utls"
 )
 
 //go:generate go run github.com/hkobir1/xray_core/common/errors/errorgen

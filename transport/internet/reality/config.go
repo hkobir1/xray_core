@@ -7,9 +7,9 @@ import (
 	"os"
 	"time"
 
-	"github.com/xtls/reality"
 	"github.com/hkobir1/xray_core/common/errors"
 	"github.com/hkobir1/xray_core/transport/internet"
+	"github.com/xtls/reality"
 )
 
 func (c *Config) GetREALITYConfig() *reality.Config {

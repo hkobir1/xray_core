@@ -9,6 +9,7 @@ import (
 	"github.com/hkobir1/xray_core/transport/internet/headers/srtp"
 	"github.com/hkobir1/xray_core/transport/internet/headers/utp"
 	"github.com/hkobir1/xray_core/transport/internet/headers/wechat"
+	"github.com/hkobir1/xray_core/transport/internet/headers/wireguard"
 )
 
 func TestAllHeadersLoadable(t *testing.T) {
@@ -31,6 +32,10 @@ func TestAllHeadersLoadable(t *testing.T) {
 		{
 			Input: new(wechat.VideoConfig),
 			Size:  13,
+		},
+		{
+			Input: new(wireguard.WireguardConfig),
+			Size:  4,
 		},
 	}
 

@@ -13,16 +13,16 @@ import (
 func IndependentCancelCtx(parent context.Context) context.Context
 
 const (
-	inboundSessionKey ctx.SessionKey = 1
-	outboundSessionKey ctx.SessionKey = 2
-	contentSessionKey ctx.SessionKey = 3
-	muxPreferedSessionKey ctx.SessionKey = 4
-	sockoptSessionKey ctx.SessionKey = 5
+	inboundSessionKey         ctx.SessionKey = 1
+	outboundSessionKey        ctx.SessionKey = 2
+	contentSessionKey         ctx.SessionKey = 3
+	muxPreferedSessionKey     ctx.SessionKey = 4
+	sockoptSessionKey         ctx.SessionKey = 5
 	trackedConnectionErrorKey ctx.SessionKey = 6
-	dispatcherKey ctx.SessionKey = 7
-	timeoutOnlyKey ctx.SessionKey = 8
-	allowedNetworkKey ctx.SessionKey = 9
-	handlerSessionKey ctx.SessionKey = 10
+	dispatcherKey             ctx.SessionKey = 7
+	timeoutOnlyKey            ctx.SessionKey = 8
+	allowedNetworkKey         ctx.SessionKey = 9
+	handlerSessionKey         ctx.SessionKey = 10
 )
 
 func ContextWithInbound(ctx context.Context, inbound *Inbound) context.Context {

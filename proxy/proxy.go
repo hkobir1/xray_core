@@ -15,7 +15,6 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/pires/go-proxyproto"
 	"github.com/hkobir1/xray_core/app/dispatcher"
 	"github.com/hkobir1/xray_core/common/buf"
 	"github.com/hkobir1/xray_core/common/errors"
@@ -30,6 +29,7 @@ import (
 	"github.com/hkobir1/xray_core/transport/internet/reality"
 	"github.com/hkobir1/xray_core/transport/internet/stat"
 	"github.com/hkobir1/xray_core/transport/internet/tls"
+	"github.com/pires/go-proxyproto"
 )
 
 var (

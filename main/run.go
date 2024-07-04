@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"fmt"
 	"log"
 	"os"
@@ -49,12 +48,15 @@ func init() {
 }
 
 var (
-	configFiles cmdarg.Arg
+	configFiles cmdarg.Arg // "Config file for Xray.", the option is customed type, parse in main
 	configDir   string
 	dump        = cmdRun.Flag.Bool("dump", false, "Dump merged config only, without launching Xray server.")
 	test        = cmdRun.Flag.Bool("test", false, "Test config file only, without launching Xray server.")
 	format      = cmdRun.Flag.String("format", "auto", "Format of input file.")
 
+	/* We have to do this here because Golang's Test will also need to parse flag, before
+	 * main func in this file is run.
+	 */
 	_ = func() bool {
 		cmdRun.Flag.Var(&configFiles, "config", "Config path for Xray.")
 		cmdRun.Flag.Var(&configFiles, "c", "Short alias of -config")
@@ -65,9 +67,6 @@ var (
 )
 
 func executeRun(cmd *base.Command, args []string) {
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-
 	if *dump {
 		clog.ReplaceWithSeverityLogger(clog.Severity_Warning)
 		errCode := dumpConfig()
@@ -75,9 +74,10 @@ func executeRun(cmd *base.Command, args []string) {
 	}
 
 	printVersion()
-	server, err := startXray(ctx)
+	server, err := startXray()
 	if err != nil {
 		fmt.Println("Failed to start:", err)
+		// Configuration error. Exit with a special value to prevent systemd from restarting.
 		os.Exit(23)
 	}
 
@@ -92,18 +92,21 @@ func executeRun(cmd *base.Command, args []string) {
 	}
 	defer server.Close()
 
+	/*
+		conf.FileCache = nil
+		conf.IPCache = nil
+		conf.SiteCache = nil
+	*/
+
+	// Explicitly triggering GC to remove garbage from config loading.
 	runtime.GC()
 	debug.FreeOSMemory()
 
-	sigChan := make(chan os.Signal, 1)
-	signal.Notify(sigChan, os.Interrupt, syscall.SIGTERM)
-	select {
-	case <-sigChan:
-		cancel()
-	case <-ctx.Done():
+	{
+		osSignals := make(chan os.Signal, 1)
+		signal.Notify(osSignals, os.Interrupt, syscall.SIGTERM)
+		<-osSignals
 	}
-
-	server.Close()
 }
 
 func dumpConfig() int {
@@ -208,8 +211,11 @@ func getConfigFormat() string {
 	return f
 }
 
-func startXray(ctx context.Context) (core.Server, error) {
+func startXray() (core.Server, error) {
 	configFiles := getConfigFilePath(true)
+
+	// config, err := core.LoadConfig(getConfigFormat(), configFiles[0], configFiles)
+
 	c, err := core.LoadConfig(getConfigFormat(), configFiles)
 	if err != nil {
 		return nil, errors.New("failed to load config files: [", configFiles.String(), "]").Base(err)
@@ -219,11 +225,6 @@ func startXray(ctx context.Context) (core.Server, error) {
 	if err != nil {
 		return nil, errors.New("failed to create server").Base(err)
 	}
-
-	go func() {
-		<-ctx.Done()
-		server.Close()
-	}()
 
 	return server, nil
 }

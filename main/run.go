@@ -8,8 +8,6 @@ import (
 	"path"
 	"path/filepath"
 	"regexp"
-	"runtime"
-	"runtime/debug"
 	"strings"
 	"syscall"
 	"time"
@@ -43,28 +41,21 @@ The -dump flag tells Xray to print the merged config.
 	`,
 }
 
-func init() {
-	cmdRun.Run = executeRun // break init loop
-}
-
 var (
 	configFiles cmdarg.Arg // "Config file for Xray.", the option is customed type, parse in main
 	configDir   string
 	dump        = cmdRun.Flag.Bool("dump", false, "Dump merged config only, without launching Xray server.")
 	test        = cmdRun.Flag.Bool("test", false, "Test config file only, without launching Xray server.")
 	format      = cmdRun.Flag.String("format", "auto", "Format of input file.")
-
-	/* We have to do this here because Golang's Test will also need to parse flag, before
-	 * main func in this file is run.
-	 */
-	_ = func() bool {
-		cmdRun.Flag.Var(&configFiles, "config", "Config path for Xray.")
-		cmdRun.Flag.Var(&configFiles, "c", "Short alias of -config")
-		cmdRun.Flag.StringVar(&configDir, "confdir", "", "A dir with multiple json config")
-
-		return true
-	}()
 )
+
+func init() {
+	cmdRun.Run = executeRun // break init loop
+
+	cmdRun.Flag.Var(&configFiles, "config", "Config path for Xray.")
+	cmdRun.Flag.Var(&configFiles, "c", "Short alias of -config")
+	cmdRun.Flag.StringVar(&configDir, "confdir", "", "A dir with multiple json config")
+}
 
 func executeRun(cmd *base.Command, args []string) {
 	if *dump {
@@ -86,27 +77,29 @@ func executeRun(cmd *base.Command, args []string) {
 		os.Exit(0)
 	}
 
+	defer server.Close() // Ensure server is closed when function exits
+
 	if err := server.Start(); err != nil {
 		fmt.Println("Failed to start:", err)
 		os.Exit(-1)
 	}
-	defer server.Close()
 
-	/*
-		conf.FileCache = nil
-		conf.IPCache = nil
-		conf.SiteCache = nil
-	*/
+	// Handle OS signals to gracefully shutdown
+	handleSignals(server)
+}
 
-	// Explicitly triggering GC to remove garbage from config loading.
-	runtime.GC()
-	debug.FreeOSMemory()
+func handleSignals(server core.Server) {
+	osSignals := make(chan os.Signal, 1)
+	signal.Notify(osSignals, os.Interrupt, syscall.SIGTERM)
 
-	{
-		osSignals := make(chan os.Signal, 1)
-		signal.Notify(osSignals, os.Interrupt, syscall.SIGTERM)
+	go func() {
 		<-osSignals
-	}
+		fmt.Println("\nReceived OS shutdown signal. Shutting down gracefully...")
+		if err := server.Close(); err != nil {
+			fmt.Println("Error shutting down server:", err)
+		}
+		os.Exit(0)
+	}()
 }
 
 func dumpConfig() int {
@@ -213,8 +206,6 @@ func getConfigFormat() string {
 
 func startXray() (core.Server, error) {
 	configFiles := getConfigFilePath(true)
-
-	// config, err := core.LoadConfig(getConfigFormat(), configFiles[0], configFiles)
 
 	c, err := core.LoadConfig(getConfigFormat(), configFiles)
 	if err != nil {
